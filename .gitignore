@@ -1,0 +1,12 @@
+*.log
+.cache/
+.brave/**
+*.{swp,sw,~}
+.git/
+.idea/
+.env
+*.tmp
+*.bak
+chromium/*/Sync Data/
+chromium/*/Local Storage/
+chromium/*/GPUCache/

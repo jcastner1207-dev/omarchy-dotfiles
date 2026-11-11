@@ -1,27 +1,59 @@
 {
-  "version": 1,
-  "idle": {
-    "screensaver": 600,
-    "lock": 900
-  },
   "bar": {
-    "position": "top",
-    "transparent": false,
+    "background": "glassy",
     "layout": {
+      "center": [
+        {
+          "format": "dddd HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
+        }
+      ],
+      "centerBegin": [
+        {
+          "id": "omarchy.indicators"
+        }
+      ],
+      "centerEnd": [
+        {
+          "cities": [
+            {
+              "name": "New York",
+              "zone": "America/New_York"
+            },
+            {
+              "name": "London",
+              "zone": "Europe/London"
+            },
+            {
+              "name": "Dubai",
+              "zone": "Asia/Dubai"
+            },
+            {
+              "name": "Tokyo",
+              "zone": "Asia/Tokyo"
+            },
+            {
+              "name": "Los Angeles",
+              "zone": "America/Los_Angeles"
+            }
+          ],
+          "id": "omarchy.elsewhen"
+        },
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.system-update"
+        }
+      ],
       "left": [
         {
           "id": "omarchy.menu"
         },
         {
           "id": "omarchy.workspaces"
-        }
-      ],
-      "center": [
-        {
-          "id": "omarchy.clock",
-          "format": "dddd HH:mm",
-          "formatAlt": "d MMMM 'W'ww yyyy",
-          "verticalFormat": "HH\n—\nmm"
         }
       ],
       "right": [
@@ -49,56 +81,24 @@
         {
           "id": "omarchy.power"
         }
-      ],
-      "centerBegin": [
-        {
-          "id": "omarchy.indicators"
-        }
-      ],
-      "centerEnd": [
-        {
-          "id": "omarchy.elsewhen",
-          "cities": [
-            {
-              "name": "New York",
-              "zone": "America/New_York"
-            },
-            {
-              "name": "London",
-              "zone": "Europe/London"
-            },
-            {
-              "name": "Dubai",
-              "zone": "Asia/Dubai"
-            },
-            {
-              "name": "Tokyo",
-              "zone": "Asia/Tokyo"
-            },
-            {
-              "name": "Los Angeles",
-              "zone": "America/Los_Angeles"
-            }
-          ]
-        },
-        {
-          "id": "omarchy.weather"
-        },
-        {
-          "id": "omarchy.system-update"
-        }
       ]
-    }
+    },
+    "position": "top"
+  },
+  "idle": {
+    "lock": 900,
+    "screensaver": 600
   },
   "plugins": [
     {
+      "description": "Terminal launcher wrapper that opens tmux on Super+Return",
       "name": "wrap-terminal",
-      "path": "/home/semaj/.config/omarchy/bin/wrap-terminal.sh",
-      "description": "Terminal launcher wrapper that opens tmux on Super+Return"
+      "path": "/home/semaj/.config/omarchy/bin/wrap-terminal.sh"
     }
   ],
   "terminal": {
     "tmuxOnLaunch": true,
     "workSessionName": "Omarchy Work"
-  }
+  },
+  "version": 1
 }
