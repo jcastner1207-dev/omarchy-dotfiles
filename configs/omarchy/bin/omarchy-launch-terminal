@@ -1,0 +1,13 @@
+#!/bin/bash
+pid=""
+if [[ ${1:-} == --pid=* ]]; then pid=${1#--pid=} ; shift; fi
+if [ -z "$*" ]; then
+    if command -v tmux &>/dev/null; then
+        if ! tmux has-session -t work 2>/dev/null; then tmux new-session -d -s work "Omarchy Terminal" ; fi
+        exec setsid uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd "$pid")" tmux attach -t work
+    else
+        exec setsid uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd "$pid")" "$@"
+    fi
+else
+    exec setsid uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd "$pid")" "$@"
+fi
